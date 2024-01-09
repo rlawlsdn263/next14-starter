@@ -22,3 +22,14 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/* 반응형 */
+.container {
+  width: 1536px;
+  margin: auto;
+  padding: 0 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
