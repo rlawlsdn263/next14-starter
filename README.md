@@ -1,28 +1,4 @@
-## Getting Started
+### COC
 
-First, install the dependencies:
-
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
-```
-
-
-run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. `/app` 디렉토리 안에는 라우터와 관련된 파일들만 저장한다. 그 외의 디렉토리는 `/src`에서 다룬다.
+2. 컴포넌트를 생성할 때는 파일이 하나더라도 항상 폴더를 같이 생성하고, `_index.js` 엔트리 파일을 활용해 `export`한다.
