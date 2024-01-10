@@ -1,15 +1,37 @@
 import Image from "next/image";
 import styles from "./About.module.css";
 
-export default function About() {
+export default function AboutPage() {
   return (
-    <div>
+    <div className={styles.container}>
+      <div className={styles.textContainer}>
+        <p className={styles.subtitle}>About Agency</p>
+        <p className={styles.title}>
+          We created digital ideas that are bigger, bolder, braver and better
+        </p>
+        <p className={styles.desc}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sunt,
+          animi labore nemo necessitatibus vel porro, voluptatibus laudantium
+          eos culpa nobis aspernatur modi tenetur blanditiis dolor iusto magni
+          quo possimus?
+        </p>
+        <div className={styles.boxes}>
+          <div className={styles.box}>
+            <span>10 K+</span>
+            <span>Year of experience</span>
+          </div>
+          <div className={styles.box}>
+            <span>10 K+</span>
+            <span>Year of experience</span>
+          </div>
+          <div className={styles.box}>
+            <span>10 K+</span>
+            <span>Year of experience</span>
+          </div>
+        </div>
+      </div>
       <div className={styles.imgContainer}>
-        <Image
-          src="https://images.pexels.com/photos/16675647/pexels-photo-16675647.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          alt="about"
-          fill
-        />
+        <Image src="/about.png" alt="about" fill />
       </div>
     </div>
   );
