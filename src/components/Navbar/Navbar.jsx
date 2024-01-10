@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <header className={styles.container}>
       <h1 className={styles.logo}>
-        <Link href="/">Logo</Link>
+        <Link href="/">JINU</Link>
       </h1>
       <Links />
     </header>
