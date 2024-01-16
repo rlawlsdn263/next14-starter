@@ -4,7 +4,7 @@ import styles from "./Blog.module.css";
 /* 데이터 패칭하는 함수 */
 const getData = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    cache: "no-store",
+    next: { revalidate: 3600 },
   });
 
   if (!res.ok) {
