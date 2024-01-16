@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Image from "next/image";
 import styles from "./Contact.module.css";
@@ -12,8 +12,8 @@ import styles from "./Contact.module.css";
 // });
 
 export default function Contact() {
-  const a = Math.random();
-  console.log(a);
+  // const a = Math.random();
+  // console.log(a);
 
   return (
     <div className={styles.container}>
@@ -22,7 +22,7 @@ export default function Contact() {
       </div>
       <div className={styles.formContainer}>
         {/* <HydrationTestNoSSR /> */}
-        <div suppressHydrationWarning>{a}</div>
+        {/* <div suppressHydrationWarning>{a}</div> */}
         <form action="" className={styles.form}>
           <input type="text" placeholder="Name and Surname" />
           <input type="text" placeholder="Email Address" />

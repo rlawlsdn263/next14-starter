@@ -2,6 +2,8 @@ import Image from "next/image";
 import styles from "./About.module.css";
 
 export default function AboutPage() {
+  console.log("어디에서 동작할까?");
+
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
