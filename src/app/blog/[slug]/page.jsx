@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./SinglePost.module.css";
+import PostUser from "@/components/PostUser/page";
 
 /* 데이터 패칭하는 함수 */
 const getData = async (slug) => {
@@ -37,10 +38,7 @@ export default async function SinglePost({ params }) {
             width={50}
             height={50}
           />
-          <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Author</span>
-            <span className={styles.detailValue}>Jinwoo</span>
-          </div>
+          <PostUser userId={post.userId} />
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>01.01.2024</span>
