@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import styles from "./SinglePost.module.css";
 import PostUser from "@/components/PostUser/page";
@@ -38,7 +39,9 @@ export default async function SinglePost({ params }) {
             width={50}
             height={50}
           />
-          <PostUser userId={post.userId} />
+          <Suspense fallback={<div>로딩 중...</div>}>
+            <PostUser userId={post.userId} />
+          </Suspense>
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>01.01.2024</span>

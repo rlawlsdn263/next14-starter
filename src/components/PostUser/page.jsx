@@ -3,7 +3,8 @@ import styles from "./PostUser.module.css";
 /* 데이터 패칭하는 함수 */
 const getData = async (userId) => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${userId}`
+    `https://jsonplaceholder.typicode.com/users/${userId}`,
+    { cache: "no-store" }
   );
 
   if (!res.ok) {
