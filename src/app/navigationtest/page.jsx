@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function NavigationTestPage() {
+  /* 클라이언트 */
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const q = searchParams.get("price");
+  console.log(pathname);
+  console.log(q);
 
   const handleClick = () => {
     console.log("클릭!");
