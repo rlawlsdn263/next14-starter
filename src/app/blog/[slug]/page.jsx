@@ -2,22 +2,26 @@ import { Suspense } from "react";
 import Image from "next/image";
 import styles from "./SinglePost.module.css";
 import PostUser from "@/components/PostUser/page";
+import { getPost } from "@/lib/data";
 
-/* 데이터 패칭하는 함수 */
-const getData = async (slug) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+/* API로 데이터 패칭하기 */
+// const getData = async (slug) => {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
 
-  if (!res.ok) {
-    throw new Error("에러남");
-  }
+//   if (!res.ok) {
+//     throw new Error("에러남");
+//   }
 
-  return res.json();
-};
+//   return res.json();
+// };
 
 export default async function SinglePost({ params }) {
   const { slug } = params;
 
-  const post = await getData(slug);
+  // const post = await getData(slug);
+
+  /* API 없이 데이터 패칭하기 */
+  const post = await getPost(slug);
 
   return (
     <div className={styles.container}>
@@ -30,7 +34,7 @@ export default async function SinglePost({ params }) {
         />
       </div>
       <div className={styles.textContainer}>
-        <h2 className={styles.title}>{post.title}</h2>
+        <h2 className={styles.title}>{post?.title}</h2>
         <div className={styles.detail}>
           <Image
             className={styles.avatar}
@@ -39,15 +43,17 @@ export default async function SinglePost({ params }) {
             width={50}
             height={50}
           />
-          <Suspense fallback={<div>로딩 중...</div>}>
-            <PostUser userId={post.userId} />
-          </Suspense>
+          {post && (
+            <Suspense fallback={<div>로딩 중...</div>}>
+              <PostUser userId={post?.userId} />
+            </Suspense>
+          )}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>01.01.2024</span>
           </div>
         </div>
-        <div className={styles.content}>{post.body}</div>
+        <div className={styles.content}>{post?.body}</div>
       </div>
     </div>
   );
