@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import { Post, User } from "./models";
 import { connectToDB } from "./utils";
 
@@ -39,6 +40,7 @@ export const getPost = async (slug) => {
 };
 
 export const getUser = async (id) => {
+  noStore();
   try {
     connectToDB();
     const user = await User.findById(id);
