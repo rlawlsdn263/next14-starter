@@ -26,12 +26,7 @@ export default async function SinglePost({ params }) {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <Image
-          className={styles.img}
-          src="https://images.pexels.com/photos/12225078/pexels-photo-12225078.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-          fill
-        />
+        <Image className={styles.img} src={post.img} alt="" fill />
       </div>
       <div className={styles.textContainer}>
         <h2 className={styles.title}>{post?.title}</h2>
@@ -43,17 +38,17 @@ export default async function SinglePost({ params }) {
             width={50}
             height={50}
           />
-          {post && (
+          {/* {post && (
             <Suspense fallback={<div>로딩 중...</div>}>
               <PostUser userId={post?.userId} />
             </Suspense>
-          )}
+          )} */}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>01.01.2024</span>
           </div>
         </div>
-        <div className={styles.content}>{post?.body}</div>
+        <div className={styles.content}>{post?.desc}</div>
       </div>
     </div>
   );
