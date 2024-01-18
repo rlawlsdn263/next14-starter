@@ -11,6 +11,11 @@ import styles from "./Contact.module.css";
 //   ssr: false,
 // });
 
+export const metadata = {
+  title: "Contact Page",
+  description: "Contact Description",
+};
+
 export default function Contact() {
   // const a = Math.random();
   // console.log(a);
