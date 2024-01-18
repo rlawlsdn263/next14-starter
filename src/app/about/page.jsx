@@ -1,6 +1,11 @@
 import Image from "next/image";
 import styles from "./About.module.css";
 
+export const metadata = {
+  title: "About Page",
+  description: "About Description",
+};
+
 export default function AboutPage() {
   console.log("어디에서 동작할까?");
 
