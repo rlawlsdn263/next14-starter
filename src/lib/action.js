@@ -3,6 +3,7 @@
 // 서버액션을 쓰면 async 함수여야함.
 // 서버액션은 서버에서만 돌아감
 
+import { signIn, signOut } from "./auth";
 import { revalidatePath } from "next/cache";
 import { Post } from "./models";
 import { connectToDB } from "./utils";
@@ -41,4 +42,14 @@ export const deletPost = async (formData) => {
     console.log(err);
     return { error: "Something went wrong!" };
   }
+};
+
+/* 로그인 */
+export const handleGithubLogin = async () => {
+  await signIn("github");
+};
+
+/* 로그아웃 */
+export const handleLogout = async () => {
+  await signOut();
 };

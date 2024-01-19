@@ -5,13 +5,13 @@ import Image from "next/image";
 import { links } from "@/constants/_index";
 import NavLink from "./NavLink/NavLink";
 import styles from "./Links.module.css";
+import { handleLogout } from "@/lib/action";
 
-export default function Links() {
+export default function Links({ session }) {
   // 메뉴 버튼
   const [open, setOpen] = useState(false);
 
   // 임시 로그인 상태
-  const session = true;
   const isAdmin = true;
 
   return (
@@ -23,11 +23,15 @@ export default function Links() {
             <NavLink key={link.id} item={link} />
           ))}
           {/* 세션 */}
-          {session ? (
+          {session?.user ? (
             // 어드민 계정일 경우
             <>
-              {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-              <button className={styles.logout}>Logout</button>
+              {session.user?.isAdmin && (
+                <NavLink item={{ title: "Admin", path: "/admin" }} />
+              )}
+              <form action={handleLogout}>
+                <button className={styles.logout}>Logout</button>
+              </form>
             </>
           ) : (
             // 일반 계정일 경우
