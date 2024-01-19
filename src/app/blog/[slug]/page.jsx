@@ -5,15 +5,15 @@ import PostUser from "@/components/PostUser/page";
 import { getPost } from "@/lib/data";
 
 /* API로 데이터 패칭하기 */
-// const getData = async (slug) => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+const getData = async (slug) => {
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
 
-//   if (!res.ok) {
-//     throw new Error("에러남");
-//   }
+  if (!res.ok) {
+    throw new Error("에러남");
+  }
 
-//   return res.json();
-// };
+  return res.json();
+};
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = params;
@@ -28,10 +28,10 @@ export const generateMetadata = async ({ params }) => {
 export default async function SinglePost({ params }) {
   const { slug } = params;
 
-  // const post = await getData(slug);
+  const post = await getData(slug);
 
   /* API 없이 데이터 패칭하기 */
-  const post = await getPost(slug);
+  // const post = await getPost(slug);
 
   return (
     <div className={styles.container}>

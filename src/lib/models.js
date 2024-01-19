@@ -45,7 +45,7 @@ const postSchema = new mongoose.Schema(
       type: String,
     },
     userId: {
-      type: Boolean,
+      type: String,
       required: false,
     },
     slug: {
